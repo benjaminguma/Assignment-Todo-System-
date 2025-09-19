@@ -1,22 +1,13 @@
 "use client"
-import { ChakraProvider, createSystem, defaultConfig, defaultSystem, defineConfig } from "@chakra-ui/react"
-import { ThemeProvider } from "next-themes"
-
-const config = defineConfig({
-    theme: {
-        tokens: {
-            colors: {},
-        },
-    },
-})
-
-const system = createSystem(defaultConfig, config)
+import theme from "@/components/theme"
+import { ColorModeProvider } from "@/components/ui/color-mode"
+import { ChakraProvider } from "@chakra-ui/react"
 export default function ChakraUiProvider(props: { children: React.ReactNode }) {
     return (
-        <ChakraProvider value={defaultSystem}>
-            <ThemeProvider attribute="class" disableTransitionOnChange>
+        <ChakraProvider value={theme}>
+            <ColorModeProvider>
                 {props.children}
-            </ThemeProvider>
+            </ColorModeProvider>
         </ChakraProvider>
     )
 }

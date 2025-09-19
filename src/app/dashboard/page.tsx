@@ -1,9 +1,9 @@
+"use client"
+import { Text } from '@chakra-ui/react'
 import React from 'react'
 
 function page() {
-    return (
-        <div>page</div>
-    )
+    return null
 }
 
 export default page

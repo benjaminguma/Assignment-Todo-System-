@@ -50,7 +50,7 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
     const IconComponent = item.icon;
     const dis = useDisclosure()
     return (
-        <Box>
+        <Box fontSize={"base"}>
             <Collapsible.Root defaultOpen={dis.open} onOpenChange={dis.onToggle} >
                 <Collapsible.Trigger borderColor={"red.500"} w={"full"} >
                     <Flex
@@ -72,8 +72,7 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
                                 IconComponent ? <IconComponent size={18} color="#7988A9" /> : null
                             }
 
-
-                            <Text fontSize="smaller" fontWeight="medium" >
+                            <Text as="span" fontWeight="medium" >
                                 {item.label}
                             </Text>
                         </Flex>
@@ -94,7 +93,6 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
                             ))}
                         </VStack>
                     </Collapsible.Content>
-
                 )}
             </Collapsible.Root>
         </Box>
@@ -131,7 +129,7 @@ function LanguageMenu() {
                 >
                     <Flex align="center" gap={2}>
                         <CountryIcons.England />
-                        <Text fontSize="sm" color="gray.800">
+                        <Text color="gray.800">
                             {selected.label}
                         </Text>
                     </Flex>
@@ -150,7 +148,7 @@ function LanguageMenu() {
                             color={"gray.600"}
                         >
                             <CountryIcons.England />
-                            <Text fontSize="sm" >{lang.label}</Text>
+                            <Text >{lang.label}</Text>
                         </Menu.Item>
                     ))}
                 </Menu.Content>
