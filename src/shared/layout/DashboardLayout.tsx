@@ -1,12 +1,28 @@
 import React, { PropsWithChildren } from 'react'
 import Sidebar from './sidebar'
+import { Box, Flex } from '@chakra-ui/react'
+import TopNav from './TopNav'
+import TodoLayout from '@/routes/todos/layout/TodoLayout'
 
 function DashboardLayout({ children }: PropsWithChildren) {
     return (
-        <div className="">
+        <Box display={"flex"} w={"100vw"} className="">
             <Sidebar />
-            {children}
-        </div>
+            <Flex bg={"cusGrey.100"} flexGrow={1} overflowX={"hidden"}>
+                <Box
+                    // mx={{ base: 4, md: 10 }}
+                    mb="10rem"
+                    flexGrow={1}
+                >
+                    <TopNav />
+                    <Box as={"section"} py={"4rem"}>
+                        <TodoLayout />
+                    </Box>
+
+                    {children}
+                </Box>
+            </Flex>
+        </Box>
     )
 }
 

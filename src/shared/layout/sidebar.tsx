@@ -14,14 +14,15 @@ const Sidebar = () => {
         <Box
             w="250px"
             h="100vh"
-            bg="white"
+            bg="bg"
             borderRight="1px solid"
-            borderColor="gray.200"
             display="flex"
             flexDirection="column"
             justifyContent={"space-between"}
             alignItems={"center"}
             py={6}
+            borderBottomWidth={"1px"}
+            borderColor={"bordl"}
         >
             {/* Logo Box */}
             <Flex
@@ -63,6 +64,7 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
                         color={"gray.600"}
                         borderRadius={"md"}
                         px={"2"}
+
                     >
                         <Flex
                             align="center"
@@ -159,6 +161,7 @@ function LanguageMenu() {
 
 
 const SettingsCard = () => {
+    const [checked, setChecked] = useState(false)
     return (
         <Box
             border="1px solid"
@@ -186,9 +189,14 @@ const SettingsCard = () => {
                 <Text fontSize="sm" color="gray.800">
                     Dark mode
                 </Text>
-                <Switch.Root>
+                <Switch.Root
+                    colorPalette={"teal"}
+                    checked={checked}
+                    onCheckedChange={(e) => setChecked(e.checked)}
+                >
                     <Switch.HiddenInput />
                     <Switch.Control />
+                    <Switch.Label />
                 </Switch.Root>
             </Flex>
         </Box>
