@@ -1,0 +1,128 @@
+import { Assignee, Todo } from "../types";
+
+export const dummytodos: Todo[] = [
+    {
+        title: 'MKV Intranet V2',
+        description: 'Improve system security and user interface.',
+        status: 'To Do',
+        startDate: '04/06/2024',
+        endDate: '16/06/2014',
+        assignees: ['1', '2'],
+        priority: 'Medium',
+    },
+    {
+        title: 'Design System',
+        description: 'Create a new style guide for all applications.',
+        status: 'In Progress',
+        startDate: '23/06/2024',
+        endDate: '24/06/2024',
+        assignees: ['1', '3'],
+        priority: 'Important',
+    },
+    {
+        title: 'Medical Appointment',
+        description: 'Attend the scheduled medical check-up.',
+        status: 'Complete',
+        startDate: '16/06/2024',
+        endDate: '18/06/2024',
+        assignees: ['4', '5'],
+        priority: 'Urgent',
+    },
+    {
+        title: 'MKV Intranet V2',
+        description: 'Refactor old codebase for better performance.',
+        status: 'To Do',
+        startDate: '04/06/2024',
+        endDate: '16/06/2014',
+        assignees: ['1', '2'],
+        priority: 'Medium',
+    },
+    {
+        title: 'Design System',
+        description: 'Finalize component library documentation.',
+        status: 'In Progress',
+        startDate: '23/06/2024',
+        endDate: '24/06/2024',
+        assignees: ['1', '3'],
+        priority: 'Important',
+    },
+    {
+        title: 'Medical Appointment',
+        description: 'Follow-up visit with the specialist.',
+        status: 'Complete',
+        startDate: '16/06/2024',
+        endDate: '18/06/2024',
+        assignees: ['4', '5'],
+        priority: 'Urgent',
+    },
+    {
+        title: 'Medical Appointment',
+        description: 'Initial consultation with the doctor.',
+        status: 'Complete',
+        startDate: '16/06/2024',
+        endDate: '18/06/2024',
+        assignees: ['4', '5'],
+        priority: 'Urgent',
+    },
+    {
+        title: 'Design System',
+        description: 'Review and approve new design mockups.',
+        status: 'In Progress',
+        startDate: '23/06/2024',
+        endDate: '24/06/2024',
+        assignees: ['1', '3'],
+        priority: 'Important',
+    },
+    {
+        title: 'Medical Appointment',
+        description: 'Get prescription refills.',
+        status: 'Complete',
+        startDate: '16/06/2024',
+        endDate: '18/06/2024',
+        assignees: ['4', '5'],
+        priority: 'Urgent',
+    },
+    {
+        title: 'MKV Intranet V2',
+        description: 'Deploy the new intranet version to production.',
+        status: 'To Do',
+        startDate: '04/06/2024',
+        endDate: '16/06/2014',
+        assignees: ['1', '2'],
+        priority: 'Medium',
+    },
+];
+
+
+export const dummyAssignees: Assignee[] = [
+    {
+        id: '1',
+        fullName: 'Paul',
+        avatar: 'https://images.unsplash.com/photo-1534528736603-91340b8a2806?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+    {
+        id: '2',
+        fullName: 'Jane Doe',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+    {
+        id: '3',
+        fullName: 'John Smith',
+        avatar: 'https://images.unsplash.com/photo-1547425260-76bc0a1e808f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+    {
+        id: '4',
+        fullName: 'Maria Garcia',
+        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+    {
+        id: '5',
+        fullName: 'David Chen',
+        avatar: 'https://images.unsplash.com/photo-1522075469751-cf8740e68d09?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+    {
+        id: '6',
+        fullName: 'Emily White',
+        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    },
+];

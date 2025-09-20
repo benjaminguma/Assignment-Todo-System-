@@ -13,15 +13,6 @@ import { Link1, Notification } from 'iconsax-react';
 import SearchInput from '../components/molecules/SearchInput';
 
 
-
-const NavButton = ({ colorScheme = "default", children }: PropsWithChildren<{ colorScheme?: "purple" | "teal" | "default" | "outline" }>) => {
-    return (
-        <Button {...customButtonRecipe({ colorScheme })}>
-            {children}
-        </Button>
-    );
-};
-
 const TopNav = () => {
     return (
         <HStack
@@ -65,9 +56,7 @@ const TopNav = () => {
                 <Button {...iconButtonRecipe()}>
                     <Notification size="18" color="#464B50" />
                 </Button>
-
                 <AuthenticatedUserDropDown />
-
             </HStack>
         </HStack>
     );
@@ -101,3 +90,12 @@ const AuthenticatedUserDropDown = () => {
         </Menu.Root>
     )
 }
+
+
+const NavButton = ({ colorScheme = "default", children }: PropsWithChildren<{ colorScheme?: "purple" | "teal" | "default" | "outline" }>) => {
+    return (
+        <Button {...customButtonRecipe({ colorScheme })}>
+            {children}
+        </Button>
+    );
+};

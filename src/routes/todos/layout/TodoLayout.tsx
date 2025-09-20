@@ -4,21 +4,21 @@ import SearchInput from '@/shared/components/molecules/SearchInput'
 import { Box, Button, Grid, HStack, Switch, Text } from '@chakra-ui/react'
 import { AddCircle, ArrowCircleLeft2, Calendar, ExportCurve, RowHorizontal, RowVertical, Sort } from 'iconsax-react'
 import React from 'react'
+import TodosTable from '../components/organisms/TodoTable'
 
 function TodoLayout() {
     return (
         <Box maxW={"1152px"} mx={"auto"} py={'2'} bg={"bg"} rounded={"2xl"}>
             <TodoLayoutHeader />
+            <TodosTable />
         </Box>
     )
 }
-
 export default TodoLayout
 
 function TodoLayoutHeader() {
     return <Grid gap={3}>
         <Box px={4} py={4} borderBottom={"1px solid"} borderColor={"bordl"}>
-
             <HStack justifyContent={"space-between"}>
                 <HStack gap={8}>
                     <Button {...iconButtonRecipe({ size: "lg" })}>

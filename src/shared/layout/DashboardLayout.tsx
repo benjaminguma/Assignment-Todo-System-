@@ -6,7 +6,7 @@ import TodoLayout from '@/routes/todos/layout/TodoLayout'
 
 function DashboardLayout({ children }: PropsWithChildren) {
     return (
-        <Box display={"flex"} w={"100vw"} className="">
+        <Box display={"flex"} w={"100vw"} h={"100vh"} className="">
             <Sidebar />
             <Flex bg={"cusGrey.100"} flexGrow={1} overflowX={"hidden"}>
                 <Box

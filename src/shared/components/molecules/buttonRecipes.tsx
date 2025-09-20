@@ -13,6 +13,9 @@ export const customButtonRecipe = theme.cva({
     colorScheme: {
       default: {
         bg: 'white',
+        _hover: {
+          bg: 'white/80',
+        },
       },
       purple: {
         bg: 'purple.800',
@@ -49,7 +52,7 @@ export const customButtonRecipe = theme.cva({
     },
     size: {
       md: {
-        height: '46px',
+        height: '42px',
       },
     },
 
