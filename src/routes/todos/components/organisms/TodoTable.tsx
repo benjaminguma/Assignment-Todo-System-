@@ -36,7 +36,6 @@ function TodoStatusHeader() {
                     <TodoStatusIcons.TodoInProgress />
                     In Progress
                 </HStack>
-
                 <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
             </Button>
             <Button {...customButtonRecipe({ colorScheme: "teal" })}>

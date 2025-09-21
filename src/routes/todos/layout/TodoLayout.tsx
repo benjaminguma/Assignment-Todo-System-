@@ -57,7 +57,6 @@ function TodoLayoutHeader() {
                 </HStack>
             </HStack>
         </Box>
-
         <Box px={4}>
             <HStack p={2} justifyContent={"space-between"} bg={"primary.50"} >
                 <div className="">

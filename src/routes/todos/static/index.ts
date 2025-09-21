@@ -2,6 +2,7 @@ import { Assignee, Todo } from "../types";
 
 export const dummytodos: Todo[] = [
     {
+        id: '1',
         title: 'MKV Intranet V2',
         description: 'Improve system security and user interface.',
         status: 'To Do',
@@ -11,6 +12,7 @@ export const dummytodos: Todo[] = [
         priority: 'Medium',
     },
     {
+        id: '2',
         title: 'Design System',
         description: 'Create a new style guide for all applications.',
         status: 'In Progress',
@@ -20,6 +22,7 @@ export const dummytodos: Todo[] = [
         priority: 'Important',
     },
     {
+        id: '3',
         title: 'Medical Appointment',
         description: 'Attend the scheduled medical check-up.',
         status: 'Complete',
@@ -29,6 +32,7 @@ export const dummytodos: Todo[] = [
         priority: 'Urgent',
     },
     {
+        id: '4',
         title: 'MKV Intranet V2',
         description: 'Refactor old codebase for better performance.',
         status: 'To Do',
@@ -38,6 +42,7 @@ export const dummytodos: Todo[] = [
         priority: 'Medium',
     },
     {
+        id: '5',
         title: 'Design System',
         description: 'Finalize component library documentation.',
         status: 'In Progress',
@@ -47,6 +52,7 @@ export const dummytodos: Todo[] = [
         priority: 'Important',
     },
     {
+        id: '6',
         title: 'Medical Appointment',
         description: 'Follow-up visit with the specialist.',
         status: 'Complete',
@@ -56,6 +62,7 @@ export const dummytodos: Todo[] = [
         priority: 'Urgent',
     },
     {
+        id: '7',
         title: 'Medical Appointment',
         description: 'Initial consultation with the doctor.',
         status: 'Complete',
@@ -65,6 +72,7 @@ export const dummytodos: Todo[] = [
         priority: 'Urgent',
     },
     {
+        id: '8',
         title: 'Design System',
         description: 'Review and approve new design mockups.',
         status: 'In Progress',
@@ -74,6 +82,7 @@ export const dummytodos: Todo[] = [
         priority: 'Important',
     },
     {
+        id: '9',
         title: 'Medical Appointment',
         description: 'Get prescription refills.',
         status: 'Complete',
@@ -83,6 +92,7 @@ export const dummytodos: Todo[] = [
         priority: 'Urgent',
     },
     {
+        id: '10',
         title: 'MKV Intranet V2',
         description: 'Deploy the new intranet version to production.',
         status: 'To Do',

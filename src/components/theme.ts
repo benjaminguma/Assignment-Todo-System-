@@ -41,7 +41,6 @@ const config = defineConfig({
                 fg1: { value: { base: "#000", } },
                 bordl: { value: { base: "colors.cusBlu.50" } }
             },
-
         },
 
     },
