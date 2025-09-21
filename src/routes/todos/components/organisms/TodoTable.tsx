@@ -21,21 +21,19 @@ function TodosTable() {
 export default TodosTable
 
 
-
 function TodoStatusHeader() {
     return (
         <HStack gap={4} bg={"cusGrey.50"} mx={4} py={3} px={2} mt={3} rounded={"md"}>
             <Button {...customButtonRecipe({ colorScheme: "default" })}>
                 <HStack justifyContent={"space-between"}>
-                    {TodoStatusIcons['To Do']}
+                    <TodoStatusIcons.TodoPending />
                     To Do
                 </HStack>
-
                 <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
             </Button>
             <Button {...customButtonRecipe({ colorScheme: "default" })}>
                 <HStack justifyContent={"space-between"}>
-                    {TodoStatusIcons["In Progress"]}
+                    <TodoStatusIcons.TodoInProgress />
                     In Progress
                 </HStack>
 
@@ -43,8 +41,8 @@ function TodoStatusHeader() {
             </Button>
             <Button {...customButtonRecipe({ colorScheme: "teal" })}>
                 <HStack justifyContent={"space-between"}>
-                    {TodoStatusIcons["Complete"]}
-                    Export XLSX
+                    <TodoStatusIcons.TodoComplete />
+                    Completed
                 </HStack>
                 <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
             </Button>

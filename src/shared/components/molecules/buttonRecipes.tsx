@@ -16,6 +16,7 @@ export const customButtonRecipe = theme.cva({
         _hover: {
           bg: 'white/80',
         },
+        color: 'fg1',
       },
       purple: {
         bg: 'purple.800',
@@ -54,6 +55,9 @@ export const customButtonRecipe = theme.cva({
       md: {
         height: '42px',
       },
+      sm: {
+        height: '30px',
+      },
     },
 
 
@@ -69,7 +73,6 @@ export const customButtonRecipe = theme.cva({
 
 export const iconButtonRecipe = theme.cva({
   base: {
-
     bg: 'gray.100',
     _hover: {
       bg: 'gray.100',
@@ -79,7 +82,7 @@ export const iconButtonRecipe = theme.cva({
     size: {
       sm: {
         width: '32px',
-        height: '28px',
+        height: '32px',
       },
       md: {
         width: '40px',
@@ -96,6 +99,14 @@ export const iconButtonRecipe = theme.cva({
       },
       md: {
         borderRadius: 'md',
+      }
+    },
+    color: {
+      white: {
+        bg: "white",
+        _hover: {
+          bg: "white/80"
+        }
       }
     }
   },

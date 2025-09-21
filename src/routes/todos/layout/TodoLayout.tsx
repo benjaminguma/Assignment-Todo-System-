@@ -5,12 +5,14 @@ import { Box, Button, Grid, HStack, Switch, Text } from '@chakra-ui/react'
 import { AddCircle, ArrowCircleLeft2, Calendar, ExportCurve, RowHorizontal, RowVertical, Sort } from 'iconsax-react'
 import React from 'react'
 import TodosTable from '../components/organisms/TodoTable'
+import TodosColumsGrid from '../components/organisms/TodosColumsGrid'
 
 function TodoLayout() {
     return (
         <Box maxW={"1152px"} mx={"auto"} py={'2'} bg={"bg"} rounded={"2xl"}>
             <TodoLayoutHeader />
             <TodosTable />
+            <TodosColumsGrid />
         </Box>
     )
 }
@@ -55,7 +57,7 @@ function TodoLayoutHeader() {
         </Box>
 
         <Box px={4}>
-            <HStack p={2} justifyContent={"space-between"} bg={"teal.100/40"} >
+            <HStack p={2} justifyContent={"space-between"} bg={"primary.50"} >
                 <div className="">
                     <SearchInput bg='bg' placeHolder='Search for To-Do' />
                 </div>

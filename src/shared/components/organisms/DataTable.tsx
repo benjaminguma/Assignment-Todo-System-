@@ -16,7 +16,6 @@ import { Box, Table } from "@chakra-ui/react"
 
 import React, { useEffect } from "react";
 import DataTablePagination from "./Pagination";
-// import { Input } from "@/components/ui/input";
 
 export interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -74,12 +73,15 @@ export function DataTable<TData, TValue>({
                                 {headerGroup.headers.map((header, i) => {
                                     return (
                                         <Table.ColumnHeader
+                                            bg={"gray.100"}
                                             key={header.id}
                                             className='cursor-pointer'
                                             onClick={() => header.column.toggleSorting()}
-                                            py={3}
+                                            py={5}
                                             fontWeight={"bold"} color={"fg1"}
                                             pl={i === 0 ? 9 : 3}
+                                            borderLeft={"1px solid"}
+                                            borderColor={"gray.300"}
                                         >
                                             {header.isPlaceholder
                                                 ? null

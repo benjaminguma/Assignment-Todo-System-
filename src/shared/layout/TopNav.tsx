@@ -52,7 +52,6 @@ const TopNav = () => {
                 <Button {...iconButtonRecipe({ radius: "md" })}>
                     <Link1 size="18" color="#464B50" />
                 </Button>
-
                 <Button {...iconButtonRecipe()}>
                     <Notification size="18" color="#464B50" />
                 </Button>
