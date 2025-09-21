@@ -9,6 +9,7 @@ export function todoDraftFactory(): TodoDraft {
         assignees: [],
         priority: 'None',
         startDate: dayjs(),
-        endDate: dayjs().add(1, "day"),
+        endDate: dayjs(),
+        id: ""
     };
 }

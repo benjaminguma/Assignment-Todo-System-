@@ -97,8 +97,8 @@ const AuthenticatedUserDropDown = () => {
                 </HStack>
             </Menu.Trigger>
             <Portal>
-                <Menu.Positioner w={"30px"} bg={"bg"} color={"fg"}  >
-                    <Menu.Content fontSize={"base"}>
+                <Menu.Positioner w={"30px"} bg={"bg"} color={"fg"}   >
+                    <Menu.Content fontSize={"base"} width={"100px"} shadow={"none"} border={"1px solid"} borderColor={"bordl"} >
                         <Menu.Item value="account" >Account</Menu.Item>
                         <Menu.Item value="settings">Settings</Menu.Item>
                         <Menu.Item value="logout">Logout</Menu.Item>

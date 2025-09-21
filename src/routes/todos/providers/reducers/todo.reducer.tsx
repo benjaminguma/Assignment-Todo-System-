@@ -3,7 +3,7 @@ import { TodoAction, TodoState } from "../../types";
 export function todoReducer(state: TodoState, action: TodoAction): TodoState {
     switch (action.type) {
         case "ADD_TODO":
-            return { ...state, todos: [...state.todos, action.payload] };
+            return { ...state, todos: [action.payload, ...state.todos] };
 
         case "UPDATE_TODO":
             return {
@@ -32,7 +32,6 @@ export function todoReducer(state: TodoState, action: TodoAction): TodoState {
         }
         case "SET_TODO_VIEW":
             return { ...state, view: action.payload };
-
         case "TOGGLE_DRAFT_MODAL": {
             const isOpen = action.payload?.isOpen;
             return {

@@ -1,11 +1,16 @@
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import { IconButton, Menu, Flex, AvatarGroup, Avatar, Box, Text, Button } from '@chakra-ui/react';
-import { Todo } from '../../types';
+import { Assignee, Todo } from '../../types';
 import { iconButtonRecipe } from '@/shared/components/molecules/buttonRecipes';
 import TodoPriorityFlag from './TodoPriorityFlag';
+import relativeTime from "dayjs/plugin/relativeTime";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import dayjs, { Dayjs } from "dayjs";
+dayjs.extend(relativeTime);
+dayjs.extend(localizedFormat);
 const columnHelper = createColumnHelper<Todo>();
 
-export function TodoColumnsDefs(): ColumnDef<Todo, any>[] {
+export function TodoColumnsDefs({ assigneesMap }: { assigneesMap: Map<string, Assignee> }): ColumnDef<Todo, any>[] {
     return [
         columnHelper.accessor('title', {
             header: 'Name',
@@ -16,7 +21,7 @@ export function TodoColumnsDefs(): ColumnDef<Todo, any>[] {
                 </Box>
             ),
         }),
-        columnHelper.accessor((row) => `${row.startDate} - ${row.endDate}`, {
+        columnHelper.accessor((row) => `${dayjs(row.startDate).format("DD/MM/YYYY-HH:ss")}   -   ${dayjs(row.endDate).format("DD/MM/YYYY-HH:ss")}`, {
             id: 'dateRange',
             header: 'Date',
         }),
@@ -25,21 +30,14 @@ export function TodoColumnsDefs(): ColumnDef<Todo, any>[] {
             header: 'Assignee',
             cell: (props) => (
                 <AvatarGroup size="xs" spaceX={"-3"} >
-                    {/* {props.row.original.assignees.map((assignee) => (
-                        <Avatar key={assignee.name} name={assignee.name} src={assignee.avatar} />
-                    ))} */}
-                    <Avatar.Root shape="full">
-                        <Avatar.Fallback name="Random User" />
-                        <Avatar.Image src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04" />
-                    </Avatar.Root>
-                    <Avatar.Root shape="full">
-                        <Avatar.Fallback name="Random User" />
-                        <Avatar.Image src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04" />
-                    </Avatar.Root>
-                    <Avatar.Root shape="full">
-                        <Avatar.Fallback name="Random User" />
-                        <Avatar.Image src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04" />
-                    </Avatar.Root>
+                    {props.row.original.assignees.map((assigneeId) => (
+                        <Avatar.Root shape="full">
+                            <Avatar.Fallback name={assigneesMap.get(assigneeId)!.fullName} />
+                            <Avatar.Image src={assigneesMap.get(assigneeId)!.avatar} />
+                        </Avatar.Root>
+                    ))}
+
+
                 </AvatarGroup>
             )
         }),
@@ -66,7 +64,7 @@ export function TodoColumnsDefs(): ColumnDef<Todo, any>[] {
                             </Button>
                         </Menu.Trigger>
                         <Menu.Positioner>
-                            <Menu.Content bg={"white"}>
+                            <Menu.Content bg={"bg"} width={"150px"} border={"1px solid"} borderColor={"bordl"} shadow={"none"}>
                                 <Menu.Item value='edit' onClick={() => console.log('Edit:', props.row.original)}>Edit</Menu.Item>
                                 <Menu.Item value='delete' onClick={() => console.log('Delete:', props.row.original)}>Delete</Menu.Item>
                             </Menu.Content>

@@ -109,7 +109,7 @@ export function DataTable<TData, TValue>({
                         ) : (
                             <Table.Row>
                                 <Table.Cell colSpan={columns.length} >
-                                    No results.
+                                    Hmm.. No Results found
                                 </Table.Cell>
                             </Table.Row>
                         )}

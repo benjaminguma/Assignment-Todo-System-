@@ -1,3 +1,4 @@
+"use client"
 import { Box, Flex, Text, Badge, Button, Icon } from "@chakra-ui/react";
 import { Calendar, User, Add, Flag } from "iconsax-react";
 import { Todo } from "../../types";
@@ -6,7 +7,8 @@ import { TodoStatusIcons } from "../atoms";
 import { customButtonRecipe, iconButtonRecipe } from "@/shared/components/molecules/buttonRecipes";
 import TodoPriorityFlag from "../molecules/TodoPriorityFlag";
 import { dummytodos } from "../../static";
-
+import { useTodoCtx } from "../../providers/TodoContext";
+import { todoDraftFactory } from "../../utils";
 
 interface ITodoColumProps {
     status: Todo["status"];
@@ -14,17 +16,22 @@ interface ITodoColumProps {
 
 
 function TodoColumn(props: ITodoColumProps) {
+    const { createDraft } = useTodoCtx()
+    function createDraftOfStatus() {
+        const draft = todoDraftFactory();
+        draft.status = props.status;
+        createDraft({ draft })
+    }
     return (
         <Box bg="gray.50" borderRadius="md">
             <TodoColumnHeader status={props.status} />
             <Box px={2} pb={4} pt={2} >
                 <TodoCard todo={dummytodos[0]} />
-                <Flex align="center" gap={2} mt={4} color={"fg1"} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
+                <Flex onClick={createDraftOfStatus} align="center" gap={2} mt={4} color={"fg1"} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
                     <Add size="20" color="currentColor" />
                     <Text fontSize="sm">Add Task</Text>
                 </Flex>
             </Box>
-
         </Box>
     );
 };

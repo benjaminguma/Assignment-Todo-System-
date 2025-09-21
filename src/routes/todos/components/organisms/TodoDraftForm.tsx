@@ -7,15 +7,25 @@ import {
     Grid,
     Field,
     Input,
+    Button,
 } from "@chakra-ui/react";
 import { Calendar, User, Flag, Stickynote, UserCirlceAdd } from "iconsax-react";
 import TodoStatusDropDown from "../molecules/TodoStatusDropDown";
 import TodoDatePickerDropdown from "../molecules/TodoDatePickerDropdown";
 import TodoPriorityDropdown from "../molecules/TodoPriorityDropDown";
 import TodoAssigneeDropDown from "../molecules/TodoAssigneesDropdown";
+import { useTodoCtx } from "../../providers/TodoContext";
+import useDraft from "../../hooks/useDraft";
+import { customButtonRecipe } from "@/shared/components/molecules/buttonRecipes";
 
 
 export function TodoDraftForm() {
+    const { updateDraft, draft } = useDraft()
+    const { persistDraft } = useTodoCtx()
+
+    const disabled = !draft?.title || !draft?.description || !draft?.endDate || draft?.assignees.length === 0
+
+    console.log(draft);
     return (
         <Box >
             <Input
@@ -27,6 +37,8 @@ export function TodoDraftForm() {
                 color={"gray.400"}
                 py={1}
                 my={6}
+                value={draft?.title}
+                onChange={(e) => updateDraft({ title: e.target.value })}
             />
             <Grid gap={5}>
 
@@ -64,7 +76,6 @@ export function TodoDraftForm() {
                     <TodoPriorityDropdown />
                 </Grid>
 
-
                 <Field.Root required display={"grid"} gap={3}>
                     <Flex align="center" gap={3} color={"fg"}>
                         <Stickynote size="18" color="currentColor" />
@@ -72,14 +83,20 @@ export function TodoDraftForm() {
                     </Flex>
                     <Textarea
                         placeholder="Write something or type"
-                        value={''}
                         bg={"cusGrey.100"}
                         rows={8}
                         fontSize={"base"}
                         borderColor={"bordl"}
+                        value={draft?.description}
+                        onChange={(e) => updateDraft({ description: e.target.value })}
                     />
                 </Field.Root>
             </Grid>
+            <Flex display={"flex"} justifyContent={"flex-end"} gap={3} mt={7}>
+                <Button onClick={() => draft && persistDraft(draft)} {...customButtonRecipe({ colorScheme: "teal", size: "lg" })} disabled={disabled} >
+                    {draft?.id ? "Update Task" : "Create Task"}
+                </Button>
+            </Flex>
         </Box>
     );
 };

@@ -6,6 +6,7 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 import TodoDraftForm from "./TodoDraftForm";
+import DraftProvider from "../../providers/draft/DraftProvider";
 
 
 type TodoDraftDialogProps = {
@@ -25,14 +26,11 @@ export const TodoDraftDialog: FC<TodoDraftDialogProps> = ({
                     <Dialog.CloseTrigger />
 
                     <Dialog.Body>
-                        <TodoDraftForm />
+                        <DraftProvider>
+                            <TodoDraftForm />
+                        </DraftProvider>
                     </Dialog.Body>
 
-                    <Dialog.Footer display={"flex"} justifyContent={"flex-end"} gap={3}>
-                        <Button {...customButtonRecipe({ colorScheme: "teal" })} >
-                            Create Task
-                        </Button>
-                    </Dialog.Footer>
                     <Dialog.CloseTrigger asChild {...iconButtonRecipe({ size: "lg", })}>
                         <CloseButton size="sm" color={"currentcolor"} />
                     </Dialog.CloseTrigger>

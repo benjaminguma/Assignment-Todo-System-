@@ -18,15 +18,14 @@ dayjs.extend(localizedFormat);
 
 
 
-function DatePicker() {
-    const [selected, setSelected] = useState<Date>();
+function DatePicker({ date, setDate }: { date?: dayjs.Dayjs, setDate: (date: Date) => void }) {
     const relativeDates = getRelativeDates()
     return (
         <Grid templateColumns={{ base: "1fr", md: "250px 1fr" }}>
             <Box p={3} pr={4} borderRight={"1px solid"} borderColor={"cusGrey.200"}>
                 <Grid p={3} bg={"cusGrey.100"} fontSize={"base"} gap={3} cursor={"pointer"}>
                     {
-                        relativeDates.map((item, i) => <Flex justifyContent={"space-between"} fontSize={"base"} alignItems={"center"} color={"fg"} px={3} py={2.5} rounded={"md"} bg={"bg"} >
+                        relativeDates.map((item, i) => <Flex onClick={() => setDate(item.date.toDate())} justifyContent={"space-between"} fontSize={"base"} alignItems={"center"} color={"fg"} px={3} py={2.5} rounded={"md"} bg={"bg"} >
                             <Text as={"span"}>{item.title}</Text>
                             <Text as={"span"}>{item.date.format(item.format)}</Text>
                         </Flex>)
@@ -47,9 +46,9 @@ function DatePicker() {
                 <Box p={3}>
                     <DayPicker
                         mode="single"
-                        selected={selected}
-                        onSelect={setSelected}
-
+                        required={true}
+                        selected={date?.toDate()}
+                        onSelect={setDate}
                     />
                 </Box>
             </Box>

@@ -6,20 +6,23 @@ import { TodoColumnsDefs } from '../molecules/TodoColumnDefs';
 import { Badge, Box, Button, Grid, HStack } from '@chakra-ui/react';
 import { customButtonRecipe } from '@/shared/components/molecules/buttonRecipes';
 import { TodoStatusIcons } from '../atoms';
+import { useTodoCtx } from '../../providers/TodoContext';
+import useAssignees from '../../hooks/useAssignees';
 
 
 function TodosTable() {
+    const { createDraft, state } = useTodoCtx()
+    const { assigneesMap } = useAssignees()
     return (
         <Grid gap={5}>
             <TodoStatusHeader />
             <Box bg={"bg"} >
-                <DataTable data={dummytodos} columns={TodoColumnsDefs()} />
+                <DataTable data={state.todos} columns={TodoColumnsDefs({ assigneesMap })} />
             </Box>
         </Grid>
     );
 }
 export default TodosTable
-
 
 function TodoStatusHeader() {
     return (

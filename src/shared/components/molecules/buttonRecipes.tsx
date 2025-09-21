@@ -58,6 +58,10 @@ export const customButtonRecipe = theme.cva({
       sm: {
         height: '30px',
       },
+      lg: {
+        height: '50px',
+        px: "10"
+      }
     },
 
 

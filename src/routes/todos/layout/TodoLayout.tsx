@@ -10,21 +10,21 @@ import { TodoDraftDialog } from '../components/organisms/TodoDraftDialogue'
 import { useTodoCtx } from '../providers/TodoContext'
 
 function TodoLayout() {
-    const { state } = useTodoCtx()
+    const { state, toggleModal } = useTodoCtx()
     return (
         <Box maxW={"1152px"} mx={"auto"} py={'2'} bg={"bg"} rounded={"2xl"}>
             <TodoLayoutHeader />
             {
                 state.view === 'table' ? <TodosTable /> : <TodosColumsGrid />
             }
-            <TodoDraftDialog open onOpenChange={() => 1} />
+            <TodoDraftDialog open={state.draftModalIsOpen} onOpenChange={toggleModal} />
         </Box>
     )
 }
 export default TodoLayout
 
 function TodoLayoutHeader() {
-    const { createDraft } = useTodoCtx()
+    const { createDraft, state: { view }, changeView } = useTodoCtx()
     return <Grid gap={3}>
         <Box px={4} py={4} borderBottom={"1px solid"} borderColor={"bordl"}>
             <HStack justifyContent={"space-between"}>
@@ -54,7 +54,7 @@ function TodoLayoutHeader() {
                         <ExportCurve size="18" color="currentColor" />
                         Export XLSX
                     </Button>
-                    <Button onClick={createDraft}  {...customButtonRecipe({ colorScheme: "teal" })}>
+                    <Button onClick={() => createDraft()}  {...customButtonRecipe({ colorScheme: "teal" })}>
                         <AddCircle size="18" color="currentColor" />
                         Add Task
                     </Button>
@@ -67,11 +67,11 @@ function TodoLayoutHeader() {
                     <SearchInput bg='bg' placeHolder='Search for To-Do' />
                 </div>
                 <HStack p={1} bg={"bg"}>
-                    <Button rounded={"md"} bg={"grey.100"} p={2}>
-                        <RowHorizontal size="20" color="#7988A9" />
+                    <Button onClick={() => changeView("row")} rounded={"md"} {...customButtonRecipe({ colorScheme: view === "row" ? "teal" : "default" })}  >
+                        <RowHorizontal size="20" color='currentColor' />
                     </Button>
-                    <Button rounded={"md"} bg={"primary"} p={2}>
-                        <RowVertical size="20" color="white" />
+                    <Button onClick={() => changeView("table")} rounded={"md"} {...customButtonRecipe({ colorScheme: view === "table" ? "teal" : "default" })} >
+                        <RowVertical size="20" color="currentColor" />
                     </Button>
                 </HStack>
             </HStack>

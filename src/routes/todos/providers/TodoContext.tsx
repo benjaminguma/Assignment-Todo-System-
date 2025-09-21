@@ -1,14 +1,15 @@
 import { createContext, useContext } from "react";
-import { Todo, TodoAction, TodoState } from "../types";
+import { Todo, TodoAction, TodoDraft, TodoState, TodoView } from "../types";
 
 
 
 export type TodosContext = {
     state: TodoState,
     dispatch: React.ActionDispatch<[action: TodoAction]>
-    createDraft(todo?: Todo): void
-    persistDraft(): void,
-
+    createDraft(data?: { todo?: Todo, draft: TodoDraft }): void
+    persistDraft(draft: TodoDraft): void,
+    changeView(view: TodoView): void
+    toggleModal(): void
 
 }
 
@@ -23,6 +24,11 @@ export const TodosContext = createContext<TodosContext>({
     dispatch: () => { },
     createDraft: () => { },
     persistDraft: () => { },
+    changeView(view) {
+
+    },
+    toggleModal: () => { },
+
 });
 
 

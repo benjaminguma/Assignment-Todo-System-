@@ -139,7 +139,7 @@ function LanguageMenu() {
                 </Button>
             </Menu.Trigger>
             <Menu.Positioner  >
-                <Menu.Content bg={"white"}>
+                <Menu.Content bg={"bg"} width={"200px"} border={"1px solid"} shadow={"none"} borderColor={"bordl"} >
                     {languages.map((lang) => (
                         <Menu.Item
                             bg={"white"}

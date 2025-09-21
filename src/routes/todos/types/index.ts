@@ -23,7 +23,6 @@ export type Assignee = {
 }
 
 export type TodoView = "table" | "row"
-
 export type TodoState = {
     todos: Todo[];
     draft: TodoDraft | null;
@@ -31,6 +30,7 @@ export type TodoState = {
     view: TodoView,
     draftModalIsOpen: boolean
 };
+
 
 export type TodoAction =
     | { type: "ADD_TODO"; payload: Todo }
