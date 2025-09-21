@@ -5,7 +5,7 @@ export type Todo = {
     startDate: string;
     endDate: string;
     assignees: string[];
-    priority: 'Medium' | 'Important' | 'Urgent';
+    priority: 'Medium' | 'Important' | 'Urgent' | "Low" | "None"
 };
 
 export type Assignee = {

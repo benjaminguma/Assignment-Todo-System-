@@ -108,6 +108,7 @@ export const iconButtonRecipe = theme.cva({
           bg: "white/80"
         }
       }
+
     }
   },
   defaultVariants: {

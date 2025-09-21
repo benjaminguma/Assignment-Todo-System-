@@ -6,6 +6,7 @@ import { AddCircle, ArrowCircleLeft2, Calendar, ExportCurve, RowHorizontal, RowV
 import React from 'react'
 import TodosTable from '../components/organisms/TodoTable'
 import TodosColumsGrid from '../components/organisms/TodosColumsGrid'
+import { TodoDraftDialog } from '../components/organisms/TodoDraftDialogue'
 
 function TodoLayout() {
     return (
@@ -13,6 +14,7 @@ function TodoLayout() {
             <TodoLayoutHeader />
             <TodosTable />
             <TodosColumsGrid />
+            <TodoDraftDialog open onOpenChange={() => 1} />
         </Box>
     )
 }

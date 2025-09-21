@@ -15,6 +15,16 @@ function TodoPriorityFlag({ priority }: { priority: Todo["priority"] }) {
         case "Urgent":
             colorScheme = 'red';
             break;
+        case "Low":
+            colorScheme = '#BAC1CC';
+            break;
+
+
+
+    }
+
+    if (priority === "None") {
+        return null
     }
     return (
         <Box>
