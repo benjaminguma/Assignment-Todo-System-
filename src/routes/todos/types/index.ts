@@ -29,6 +29,7 @@ export type TodoState = {
     draft: TodoDraft | null;
     draggedTodo: Todo | null;
     view: TodoView,
+    draftModalIsOpen: boolean
 };
 
 export type TodoAction =
@@ -38,6 +39,7 @@ export type TodoAction =
     | { type: "SET_DRAFT"; payload: TodoDraft | null }
     | { type: "SET_DRAGGED_ITEM"; payload: Todo | null }
     | { type: "SET_TODO_VIEW"; payload: TodoView }
+    | { type: "TOGGLE_DRAFT_MODAL"; payload: { isOpen?: boolean } }
     | { type: "UPDATE_DRAFT"; payload: { data: Partial<TodoDraft> } }
     | { type: "CHANGE_TODO_STATE"; payload: { dragIndex: number; hoverIndex: number } };
 

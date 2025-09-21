@@ -1,7 +1,5 @@
 import TodoProvider from "@/routes/todos/providers/TodoProvider";
 import DashboardLayout from "@/shared/layout/DashboardLayout";
-
-
 export default function Layout({
     children,
 }: Readonly<{

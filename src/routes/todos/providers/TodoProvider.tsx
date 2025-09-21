@@ -10,7 +10,8 @@ const todosInitalState: TodoState = {
     todos: [],
     draft: null,
     draggedTodo: null,
-    view: "table"
+    view: "table",
+    draftModalIsOpen: false,
 }
 function TodoProvider({ children }: PropsWithChildren) {
     const [state, dispatch] = useReducer(todoReducer, todosInitalState)
@@ -20,9 +21,10 @@ function TodoProvider({ children }: PropsWithChildren) {
             const draft = todoToDraft(todo);
 
             dispatch({ type: "SET_DRAFT", payload: draft })
-            return
+
         }
-        return dispatch({ type: "SET_DRAFT", payload: todoDraftFactory() })
+        else dispatch({ type: "SET_DRAFT", payload: todoDraftFactory() })
+        dispatch({ type: "TOGGLE_DRAFT_MODAL", payload: { isOpen: true } })
     }
 
     function persistDraft() {

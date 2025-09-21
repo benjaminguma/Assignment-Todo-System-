@@ -33,6 +33,13 @@ export function todoReducer(state: TodoState, action: TodoAction): TodoState {
         case "SET_TODO_VIEW":
             return { ...state, view: action.payload };
 
+        case "TOGGLE_DRAFT_MODAL": {
+            const isOpen = action.payload?.isOpen;
+            return {
+                ...state,
+                draftModalIsOpen: typeof isOpen === 'boolean' ? isOpen : !state.draftModalIsOpen,
+            };
+        }
         default:
             return state;
     }

@@ -7,13 +7,16 @@ import React from 'react'
 import TodosTable from '../components/organisms/TodoTable'
 import TodosColumsGrid from '../components/organisms/TodosColumsGrid'
 import { TodoDraftDialog } from '../components/organisms/TodoDraftDialogue'
+import { useTodoCtx } from '../providers/TodoContext'
 
 function TodoLayout() {
+    const { state } = useTodoCtx()
     return (
         <Box maxW={"1152px"} mx={"auto"} py={'2'} bg={"bg"} rounded={"2xl"}>
             <TodoLayoutHeader />
-            <TodosTable />
-            <TodosColumsGrid />
+            {
+                state.view === 'table' ? <TodosTable /> : <TodosColumsGrid />
+            }
             <TodoDraftDialog open onOpenChange={() => 1} />
         </Box>
     )
@@ -21,6 +24,7 @@ function TodoLayout() {
 export default TodoLayout
 
 function TodoLayoutHeader() {
+    const { createDraft } = useTodoCtx()
     return <Grid gap={3}>
         <Box px={4} py={4} borderBottom={"1px solid"} borderColor={"bordl"}>
             <HStack justifyContent={"space-between"}>
@@ -50,7 +54,7 @@ function TodoLayoutHeader() {
                         <ExportCurve size="18" color="currentColor" />
                         Export XLSX
                     </Button>
-                    <Button {...customButtonRecipe({ colorScheme: "teal" })}>
+                    <Button onClick={createDraft}  {...customButtonRecipe({ colorScheme: "teal" })}>
                         <AddCircle size="18" color="currentColor" />
                         Add Task
                     </Button>
