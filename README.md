@@ -13,6 +13,7 @@ This is a simple todo application based on the requirements specified [here](htt
 https://github.com/user-attachments/assets/6fac4792-c831-4d3b-9cc1-bfb3e99af9bf
 
 
+[Live url](https://todo-app-ecru-eta-25.vercel.app)
 
 ## Getting Started
 
