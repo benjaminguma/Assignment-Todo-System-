@@ -9,9 +9,11 @@ import TodoPriorityFlag from "../molecules/TodoPriorityFlag";
 import { dummytodos } from "../../static";
 import { useTodoCtx } from "../../providers/TodoContext";
 import { todoDraftFactory } from "../../utils";
+import { AggregatedTodo, AggregatedTodos } from "../../hooks/useAggregatedTodosByStatus";
 
 interface ITodoColumProps {
     status: Todo["status"];
+    todos: AggregatedTodos
 }
 
 
@@ -22,16 +24,25 @@ function TodoColumn(props: ITodoColumProps) {
         draft.status = props.status;
         createDraft({ draft })
     }
+
     return (
-        <Box bg="gray.50" borderRadius="md">
-            <TodoColumnHeader status={props.status} />
-            <Box px={2} pb={4} pt={2} >
-                <TodoCard todo={dummytodos[0]} />
-                <Flex onClick={createDraftOfStatus} align="center" gap={2} mt={4} color={"fg1"} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
-                    <Add size="20" color="currentColor" />
-                    <Text fontSize="sm">Add Task</Text>
-                </Flex>
-            </Box>
+        <Box bg="gray.50" pb={2} borderRadius="md" display={"flex"} flexDirection={"column"} justifyContent={"space-between"} height={"100%"}>
+            <div className="">
+                <TodoColumnHeader status={props.status} count={props.todos.items.length} />
+                <Box px={2} pt={2} >
+
+                    {
+                        props.todos.items.map((aTodo) => (
+                            <TodoCard key={aTodo.index} aTodo={aTodo} />
+                        ))
+                    }
+                </Box>
+
+            </div>
+            <Flex mx={2} onClick={createDraftOfStatus} align="center" gap={2} mt={4} color={"fg1"} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
+                <Add size="20" color="currentColor" />
+                <Text fontSize="sm">Add Task</Text>
+            </Flex>
         </Box>
     );
 };
@@ -41,9 +52,9 @@ export default TodoColumn;
 
 type TodoColumnHeaderProps = {
     status: Todo["status"];
-
+    count?: number
 };
-const TodoColumnHeader: React.FC<TodoColumnHeaderProps> = ({ status, }) => {
+const TodoColumnHeader: React.FC<TodoColumnHeaderProps> = ({ status, count }) => {
     const getBgByStatus = () => {
         if (status === "To Do") {
             return "purple.100/50"
@@ -78,7 +89,7 @@ const TodoColumnHeader: React.FC<TodoColumnHeaderProps> = ({ status, }) => {
             <Flex gap={2}>
                 {todoButton[status]}
                 <Badge bg={"bg"} color={"fg"} w={8} justifyContent={"center"} size="md">
-                    4
+                    {count}
                 </Badge>
             </Flex>
 
@@ -90,20 +101,20 @@ const TodoColumnHeader: React.FC<TodoColumnHeaderProps> = ({ status, }) => {
 };
 
 type TodoCardProps = {
-    todo: Todo
+    aTodo: AggregatedTodo
 };
-function TodoCard({ todo }: TodoCardProps) {
+function TodoCard({ aTodo }: TodoCardProps) {
+    const todo = aTodo.item
     return (
-        <Box bg="white" p={4} borderRadius="md" mb={4}>
+        <Box bg="white" p={4} borderRadius="md" mb={2}>
             <Text fontWeight="semibold" fontSize={"base"} mb={2}>
                 {todo.title}
             </Text>
-
             <Flex align="center" gap={2} mb={2}>
                 <Icon bg={"cusGrey.100"}>
                     <Calendar size="18" color="currentColor" />
                 </Icon>
-                <Text fontSize="sm">{todo.startDate}</Text>
+                <Text fontSize="sm">{todo.endDate}</Text>
             </Flex>
 
             <Flex align="center" gap={2} mb={2}>

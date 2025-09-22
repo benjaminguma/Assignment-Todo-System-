@@ -25,6 +25,7 @@ export default TodoLayout
 
 function TodoLayoutHeader() {
     const { createDraft, state: { view }, changeView } = useTodoCtx()
+
     return <Grid gap={3}>
         <Box px={4} py={4} borderBottom={"1px solid"} borderColor={"bordl"}>
             <HStack justifyContent={"space-between"}>

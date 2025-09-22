@@ -8,6 +8,7 @@ import { customButtonRecipe } from '@/shared/components/molecules/buttonRecipes'
 import { TodoStatusIcons } from '../atoms';
 import { useTodoCtx } from '../../providers/TodoContext';
 import useAssignees from '../../hooks/useAssignees';
+import useAggregatedTodosByStatus from '../../hooks/useAggregatedTodosByStatus';
 
 
 function TodosTable() {
@@ -25,6 +26,7 @@ function TodosTable() {
 export default TodosTable
 
 function TodoStatusHeader() {
+    const { aggregatedByStatus } = useAggregatedTodosByStatus()
     return (
         <HStack gap={4} bg={"cusGrey.50"} mx={4} py={3} px={2} mt={3} rounded={"md"}>
             <Button {...customButtonRecipe({ colorScheme: "default" })}>
@@ -32,21 +34,21 @@ function TodoStatusHeader() {
                     <TodoStatusIcons.TodoPending />
                     To Do
                 </HStack>
-                <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
+                <Badge bg={"cusGrey.100"} color={"fg"} size="md">{aggregatedByStatus['To Do'].items.length}</Badge>
             </Button>
             <Button {...customButtonRecipe({ colorScheme: "default" })}>
                 <HStack justifyContent={"space-between"}>
                     <TodoStatusIcons.TodoInProgress />
                     In Progress
                 </HStack>
-                <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
+                <Badge bg={"cusGrey.100"} color={"fg"} size="md">{aggregatedByStatus['In Progress'].items.length}</Badge>
             </Button>
             <Button {...customButtonRecipe({ colorScheme: "teal" })}>
                 <HStack justifyContent={"space-between"}>
                     <TodoStatusIcons.TodoComplete />
                     Completed
                 </HStack>
-                <Badge bg={"cusGrey.100"} color={"fg"} size="md">4</Badge>
+                <Badge bg={"cusGrey.100"} color={"fg"} size="md">{aggregatedByStatus.Complete.items.length}</Badge>
             </Button>
         </HStack>
     )
