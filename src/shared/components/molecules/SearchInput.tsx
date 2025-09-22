@@ -14,7 +14,7 @@ const sizeMap = {
     lg: { py: 5, px: 4, icon: 24 },
 };
 
-function SearchInput({ bg = "cusGrey.100", placeHolder = "Search contacts", size = 'md' }: SearchInputProps) {
+function SearchInput({ bg = "bg1", placeHolder = "Search contacts", size = 'md' }: SearchInputProps) {
     const [value, setValue] = useState("");
     const inputRef = useRef<HTMLInputElement | null>(null);
 

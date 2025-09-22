@@ -8,6 +8,8 @@ import {
     Switch,
 } from "@chakra-ui/react";
 import { CountryIcons } from "../components/atoms";
+import { useColorMode } from "@/components/ui/color-mode";
+import { customButtonRecipe } from "../components/molecules/buttonRecipes";
 
 const Sidebar = () => {
     return (
@@ -24,7 +26,7 @@ const Sidebar = () => {
             borderBottomWidth={"1px"}
             borderColor={"bordl"}
         >
-            {/* Logo Box */}
+
             <Flex
                 h="16"
                 align="center"
@@ -35,14 +37,13 @@ const Sidebar = () => {
                 <Logo />
             </Flex>
 
-            {/* Menu Items */}
+
             <VStack align="stretch" gap={1} py={4} flex="1" overflowY="auto">
                 {sidebarItems.map((item, idx) => (
                     <SidebarItem key={idx} item={item} />
                 ))}
             </VStack>
             <SettingsCard />
-
         </Box>
     );
 };
@@ -121,17 +122,17 @@ function LanguageMenu() {
     const l = useMemo(() => languages, [])
     return (
         <Menu.Root positioning={{ placement: "top" }} >
-            <Menu.Trigger asChild bg={"white"}>
+            <Menu.Trigger asChild bg={"bg"}>
                 <Button
-                    variant="outline"
-                    size="sm"
+                    {...customButtonRecipe({ colorScheme: "grey" })}
                     justifyContent="space-between"
                     w="full"
                     px={2}
+
                 >
                     <Flex align="center" gap={2}>
                         <CountryIcons.England />
-                        <Text color="gray.800">
+                        <Text color="fg">
                             {selected.label}
                         </Text>
                     </Flex>
@@ -142,7 +143,6 @@ function LanguageMenu() {
                 <Menu.Content bg={"bg"} width={"200px"} border={"1px solid"} shadow={"none"} borderColor={"bordl"} >
                     {languages.map((lang) => (
                         <Menu.Item
-                            bg={"white"}
                             key={lang.code}
                             value={lang.code}
                             onClick={() => setSelected(lang)}
@@ -162,14 +162,15 @@ function LanguageMenu() {
 
 const SettingsCard = () => {
     const [checked, setChecked] = useState(false)
+    const { toggleColorMode, setColorMode } = useColorMode()
     return (
         <Box
             border="1px solid"
-            borderColor="gray.200"
+            borderColor="bordl"
             borderRadius="md"
             p={2}
             w="200px"
-            bg="white"
+            bg="bg"
         >
             {/* Language Selector */}
             <Box mb={2}>
@@ -181,7 +182,7 @@ const SettingsCard = () => {
                 align="center"
                 justify="space-between"
                 border="1px solid"
-                borderColor="gray.200"
+                borderColor="bordl"
                 borderRadius="md"
                 px={2}
                 py={1}
@@ -192,7 +193,13 @@ const SettingsCard = () => {
                 <Switch.Root
                     colorPalette={"teal"}
                     checked={checked}
-                    onCheckedChange={(e) => setChecked(e.checked)}
+                    onCheckedChange={(e) => {
+                        setChecked(e.checked)
+                        if (e.checked) {
+                            setColorMode("dark")
+                        }
+                        else setColorMode("light")
+                    }}
                 >
                     <Switch.HiddenInput />
                     <Switch.Control />

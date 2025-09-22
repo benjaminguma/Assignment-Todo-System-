@@ -69,7 +69,7 @@ export function DataTable<TData, TValue>({
                 <Table.Root >
                     <Table.Header bg={"cusGrey.100"}>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <Table.Row key={headerGroup.id} borderBottom={"2px solid"} borderColor={"#e6ebf4"} >
+                            <Table.Row key={headerGroup.id} borderBottom={"2px solid"} borderColor={"#e6ebf4"} _dark={{ borderColor: "bordl" }} >
                                 {headerGroup.headers.map((header, i) => {
                                     return (
                                         <Table.ColumnHeader
@@ -82,6 +82,7 @@ export function DataTable<TData, TValue>({
                                             pl={i === 0 ? 9 : 3}
                                             borderLeft={"1px solid"}
                                             borderColor={"gray.300"}
+                                            _dark={{ bg: "bg", color: "gray.400", borderColor: "bordl" }}
                                         >
                                             {header.isPlaceholder
                                                 ? null
@@ -98,7 +99,7 @@ export function DataTable<TData, TValue>({
                     <Table.Body>
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row, i) => (
-                                <Table.Row key={i} data-state={row.getIsSelected() && "selected"} borderBottom={"2px solid"} borderColor={"#e6ebf4"}>
+                                <Table.Row key={i} data-state={row.getIsSelected() && "selected"} borderBottom={"2px solid"} borderColor={"#e6ebf4"} _dark={{ borderColor: "bordl" }}>
                                     {row.getVisibleCells().map((cell, i) => (
                                         <Table.Cell key={cell.id} py={3} pl={i === 0 ? 9 : 3}>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}

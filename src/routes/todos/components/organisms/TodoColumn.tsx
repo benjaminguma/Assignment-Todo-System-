@@ -26,7 +26,7 @@ function TodoColumn(props: ITodoColumProps) {
     }
 
     return (
-        <Box bg="gray.50" pb={2} borderRadius="md" display={"flex"} flexDirection={"column"} justifyContent={"space-between"} height={"100%"}>
+        <Box bg="gray.50" _dark={{ bg: "bg1" }} pb={2} borderRadius="md" display={"flex"} flexDirection={"column"} justifyContent={"space-between"} height={"100%"}>
             <div className="">
                 <TodoColumnHeader status={props.status} count={props.todos.items.length} />
                 <Box px={2} pt={2} >
@@ -39,7 +39,7 @@ function TodoColumn(props: ITodoColumProps) {
                 </Box>
 
             </div>
-            <Flex mx={2} onClick={createDraftOfStatus} align="center" gap={2} mt={4} color={"fg1"} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
+            <Flex mx={2} onClick={createDraftOfStatus} align="center" gap={2} mt={4} cursor="pointer" bg={"bg"} p={3} borderRadius={"md"} _hover={{ bg: "cusGrey.100" }}>
                 <Add size="20" color="currentColor" />
                 <Text fontSize="sm">Add Task</Text>
             </Flex>
@@ -106,7 +106,7 @@ type TodoCardProps = {
 function TodoCard({ aTodo }: TodoCardProps) {
     const todo = aTodo.item
     return (
-        <Box bg="white" p={4} borderRadius="md" mb={2}>
+        <Box bg="bg" p={4} borderRadius="md" mb={2}>
             <Text fontWeight="semibold" fontSize={"base"} mb={2}>
                 {todo.title}
             </Text>

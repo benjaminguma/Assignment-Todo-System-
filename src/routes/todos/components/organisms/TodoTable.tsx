@@ -28,7 +28,7 @@ export default TodosTable
 function TodoStatusHeader() {
     const { aggregatedByStatus } = useAggregatedTodosByStatus()
     return (
-        <HStack gap={4} bg={"cusGrey.50"} mx={4} py={3} px={2} mt={3} rounded={"md"}>
+        <HStack gap={4} bg={"cusGrey.50"} _dark={{ bg: "bg" }} mx={4} py={3} px={2} mt={3} rounded={"md"}>
             <Button {...customButtonRecipe({ colorScheme: "default" })}>
                 <HStack justifyContent={"space-between"}>
                     <TodoStatusIcons.TodoPending />

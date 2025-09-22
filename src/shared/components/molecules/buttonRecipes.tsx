@@ -1,5 +1,16 @@
 import theme from '@/components/theme';
 
+
+const x = {
+  _dark: {
+    bg: 'gray.900',
+    color: 'gray.100',
+    _hover: {
+      bg: 'gray.800',
+    },
+  }
+}
+
 export const customButtonRecipe = theme.cva({
   base: {
     borderRadius: '10px',
@@ -17,6 +28,8 @@ export const customButtonRecipe = theme.cva({
           bg: 'white/80',
         },
         color: 'fg1',
+        ...x
+
       },
       purple: {
         bg: 'purple.800',
@@ -36,10 +49,13 @@ export const customButtonRecipe = theme.cva({
         bg: 'white',
         borderWidth: '1px',
         borderColor: 'gray.200',
-
         _hover: {
           bg: 'gray.50',
         },
+        _dark: {
+          ...x._dark,
+          borderColor: 'gray.700',
+        }
       },
       grey: {
         bg: 'gray.100',
@@ -48,6 +64,10 @@ export const customButtonRecipe = theme.cva({
         _hover: {
           bg: 'gray.50',
         },
+        _dark: {
+          ...x._dark,
+          borderColor: 'gray.700',
+        }
       }
 
     },
@@ -81,6 +101,13 @@ export const iconButtonRecipe = theme.cva({
     _hover: {
       bg: 'gray.100',
     },
+    _dark: {
+      bg: 'gray.900',
+      color: 'gray.100',
+      _hover: {
+        bg: 'gray.800',
+      },
+    }
   },
   variants: {
     size: {
@@ -111,8 +138,8 @@ export const iconButtonRecipe = theme.cva({
         _hover: {
           bg: "white/80"
         }
-      }
 
+      }
     }
   },
   defaultVariants: {

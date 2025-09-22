@@ -8,7 +8,7 @@ function DashboardLayout({ children }: PropsWithChildren) {
     return (
         <Box display={"flex"} w={"100vw"} h={"100vh"} className="">
             <Sidebar />
-            <Flex bg={"cusGrey.100"} flexGrow={1} overflowX={"hidden"}>
+            <Flex bg={"bg1"} flexGrow={1} overflowX={"hidden"}>
                 <Box
                     // mx={{ base: 4, md: 10 }}
                     mb="10rem"

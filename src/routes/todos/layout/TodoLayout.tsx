@@ -63,7 +63,7 @@ function TodoLayoutHeader() {
             </HStack>
         </Box>
         <Box px={4}>
-            <HStack p={2} justifyContent={"space-between"} bg={"primary.50"} >
+            <HStack p={2} justifyContent={"space-between"} bg={"primary.50"} _dark={{ bg: "primary" }} >
                 <div className="">
                     <SearchInput bg='bg' placeHolder='Search for To-Do' />
                 </div>

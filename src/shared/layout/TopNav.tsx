@@ -85,7 +85,7 @@ const AuthenticatedUserDropDown = () => {
     return (
         <Menu.Root positioning={{ placement: "bottom-end" }} >
             <Menu.Trigger rounded="full" focusRing="outside" cursor="pointer">
-                <HStack gap={3} bg={"cusGrey.100"} p={1} rounded={"full"}>
+                <HStack gap={3} bg={"bg1"} p={1} rounded={"full"}>
                     <Avatar.Root size="sm">
                         <Avatar.Fallback name="Segun Adebayo" />
                         <Avatar.Image src="https://bit.ly/sage-adebayo" />

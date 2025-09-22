@@ -35,11 +35,11 @@ const config = defineConfig({
         semanticTokens: {
             colors: {
                 pri: { value: "green" },
-                bg: { value: { base: "#fff", } },
-                bg1: { value: { base: "#F5F5F5", } },
-                fg: { value: { base: "#464B50", } },
+                bg: { value: { base: "#fff", _dark: "#000" } },
+                bg1: { value: { base: "#F5F5F5", _dark: "hsl(0, 5%, 8%)" } },
+                fg: { value: { base: "#464B50", _dark: "colors.gray.400" } },
                 fg1: { value: { base: "#000", } },
-                bordl: { value: { base: "colors.cusBlu.50" } }
+                bordl: { value: { base: "colors.cusBlu.50", _dark: "colors.gray.800" } }
             },
         },
 
