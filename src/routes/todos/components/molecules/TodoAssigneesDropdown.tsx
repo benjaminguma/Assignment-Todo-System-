@@ -35,7 +35,7 @@ function TodoAssigneeDropDown() {
             <Menu.Positioner>
                 <Menu.Content zIndex={4} bg={"bg"} color={"fg"} maxW={"300px"} border={"1px solid"} borderColor={"bordl"} shadow={"none"} p={4} display={"grid"} >
                     <Menu.Item value="seearch">
-                        <SearchInput bg='gray.100' size="sm" />
+                        <SearchInput bg='bg1' size="sm" />
                     </Menu.Item>
                     <Menu.Item value="list" display={"grid"} overflowY={"scroll"} h={"200px"} gap={2} pt={4}>
                         {

@@ -54,7 +54,7 @@ export function TodoColumnsDefs({ assigneesMap }: { assigneesMap: Map<string, As
             cell: (props) => (
                 <Flex justify="flex-end">
                     <Menu.Root>
-                        <Menu.Trigger as={IconButton} paddingRight={7}>
+                        <Menu.Trigger as={IconButton} paddingRight={7} bg={"bg"}>
                             <Button {...iconButtonRecipe({ size: "sm", radius: "md" })} >
                                 <svg width="20" height="4" viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="2" cy="2" r="2" fill="#6C7278" />

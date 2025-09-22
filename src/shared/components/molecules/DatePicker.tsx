@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react'
 // import { SingleDatepicker } from "chakra-dayzed-datepicker";
 import { DayPicker } from "react-day-picker";

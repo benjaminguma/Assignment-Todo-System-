@@ -83,7 +83,7 @@ export function TodoDraftForm() {
                     </Flex>
                     <Textarea
                         placeholder="Write something or type"
-                        bg={"cusGrey.100"}
+                        bg={"bg1"}
                         rows={8}
                         fontSize={"base"}
                         borderColor={"bordl"}

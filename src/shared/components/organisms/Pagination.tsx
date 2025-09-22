@@ -32,7 +32,7 @@ const PaginationLink = (
 const DataTablePagination = () => {
     return (
         <Flex justifyContent={"space-between"} px={10} py={5} >
-            <Pagination.Root bg={"cusGrey.100"} rounded={"full"} count={20} p={3} pageSize={2} defaultPage={1}>
+            <Pagination.Root bg={"bg1"} rounded={"full"} count={20} p={3} pageSize={2} defaultPage={1}>
                 <ButtonGroup variant="ghost" size="sm">
                     <PaginationLink page="prev" color={"primary"}>
                         <FaAnglesLeft color="currentColor" />
