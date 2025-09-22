@@ -1,17 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Brief
+This is a simple todo application based on the requirements specified [here](https://wholesale-hill-4db.notion.site/Frontend-Developer-Assignment-Todo-System-2736de7e949b8058ace6eb3bb751ccde)
+
+### features
+- Pixel-perfect UI with dark mode support
+- add and persist todos to local storage
+
+
+### demo
+
+https://github.com/user-attachments/assets/6fac4792-c831-4d3b-9cc1-bfb3e99af9bf
+
+
+
 ## Getting Started
 
-First, run the development server:
-
+### install deps
+```bash
+npm install
+```
+### start local server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
